@@ -9,7 +9,16 @@
 }
 
 body {
-    @apply bg-red-100 text-black text-sm font-poppins antialiased;
+  background:
+    radial-gradient(circle at top,
+      rgba(212,175,55,0.15),
+      transparent 60%),
+    url("/assets/bg-floral.png"),
+    #fde2e7;
+
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-size: 100% 100%, 300px, cover;
+  background-attachment: fixed;
 }
 
 button {
