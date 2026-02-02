@@ -174,7 +174,6 @@ const sectionData = [
   },
 ];
 
-
 export default function OurLatestCreation() {
   const categories = [
     "Pizza Brownie",
