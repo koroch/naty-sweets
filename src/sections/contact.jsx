@@ -34,13 +34,13 @@ export default function Contact() {
                             target="_blank"
                             className="inline-block"
                             >
-                            <div className="size-20 p-1 bg-red-600/10 border border-red-400/30 rounded hover:scale-105 transition cursor-pointer">
+                            <div className="size-20 p-1 bg-pink-400/80 border border-red-400/30 rounded hover:scale-105 transition cursor-pointer">
                                 <img src={data.image} alt="" />
                             </div>
                         </a>
                         <div className="mt-5 space-y-2">
                             <h3 className="text-base font-medium text-slate-800">{data.title}</h3>
-                            <p className="text-sm text-slate-400">{data.description}</p>
+                            <p className="text-sm text-stone-700">{data.description}</p>
                         </div>
                     </motion.div>
                 ))}

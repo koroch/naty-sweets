@@ -1,60 +1,74 @@
 import { useState } from "react";
 import { MenuIcon, XIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const navlinks = [
-        {
-            href: "#creations",
-            text: "Produtos",
-        },
-        {
-            href: "#about",
-            text: "Sobre nós",
-        },
-        {
-            href: "#contact",
-            text: "Contato",
-        },
+        { href: "#creations", text: "Produtos" },
+        { href: "#about", text: "Sobre nós" },
+        { href: "#contact", text: "Contato" },
     ];
+
     return (
         <>
-            <motion.nav className="bg-stone-600 text-slate-200 sticky top-0 z-50 flex items-center justify-between w-full h-18 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur"
-                initial={{ y: -100, opacity: 0 }}
+            <motion.nav
+                className="bg-stone-600 text-slate-200 sticky top-0 z-50 flex items-center justify-between px-6 h-16"
+                initial={{ y: -80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
             >
-                <a href="#">
-                    <img className="h-16 w-auto" src="./assets/logo.png" width={138} height={36} alt="logo" />
-                </a>
+                <img src="./assets/logo.png" className="h-10" />
 
-                <div className="hidden lg:flex items-center gap-8 transition duration-500">
-                    {navlinks.map((link) => (
-                        <a key={link.href} href={link.href} className="hover:text-slate-400 transition">
-                            {link.text}
-                        </a>
-                    ))}
-                </div>
-
-                <div className="hidden space-x-6">
-                </div>
-                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden active:scale-90 transition">
-                    <MenuIcon className="size-6.5" />
+                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden">
+                    <MenuIcon />
                 </button>
             </motion.nav>
-            <div className={`fixed inset-0 z-[100] bg-black/60 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 lg:hidden transition-transform duration-400 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
-                {navlinks.map((link) => (
-                    <Link key={link.href} to={link.href} onClick={() => setIsMenuOpen(false)}>
-                        {link.text}
-                    </Link>
-                ))}
-                <button onClick={() => setIsMenuOpen(false)} className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-slate-100 hover:bg-slate-200 transition text-slate-400 rounded-md flex">
-                    <XIcon />
-                </button>
-            </div>
+
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <>
+                        {/* BACKDROP */}
+                        <motion.div
+                            className="fixed inset-0 bg-black/60 z-[90]"
+                            onClick={() => setIsMenuOpen(false)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        />
+
+                        {/* MENU */}
+                        <motion.div
+                            className="fixed top-0 right-0 w-full h-screen bg-stone-800 z-[100] flex flex-col items-center pt-24 gap-8 text-white overflow-y-auto"
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <button
+                                onClick={() => setIsMenuOpen(false)}
+                                className="absolute top-6 right-6"
+                            >
+                                <XIcon />
+                            </button>
+
+                            {navlinks.map((link) => (
+                                <a
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="text-xl"
+                                >
+                                    {link.text}
+                                </a>
+                            ))}
+
+                            <div className="h-96" />
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </>
     );
 }

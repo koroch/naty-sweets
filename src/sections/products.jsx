@@ -184,6 +184,7 @@ export default function OurLatestCreation() {
     "Torta Brownie",
     "Pudim",
     "Bombom no Pote",
+    "Picolé"
   ];
 
   const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -194,7 +195,7 @@ export default function OurLatestCreation() {
 
   return (
     <section
-      className="flex flex-col items-center py-24"
+      className="flex flex-col items-center py-4"
       id="creations"
     >
       {/* Título */}

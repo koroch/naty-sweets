@@ -42,7 +42,7 @@ export default function AboutUs() {
                 title="Sobre nós"
                 description="Conheça um pouco sobre nosso trabalho"
             />
-            <div className="flex items-center gap-4 h-100 w-full max-w-5xl mt-18 mx-auto" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
+            <div className="flex items-center gap-4 h-100 w-full max-w-5xl mt-16 mx-auto" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
                 {sectionData.map((data, index) => (
                     <motion.div key={data.title} className={`relative group flex-grow h-[400px] rounded-xl overflow-hidden ${isHovered && className ? "hover:w-full w-56" : index === activeIndex ? "w-full" : "w-56"} ${className} ${!className ? "pointer-events-none" : ""}`}
                         initial={{ y: 150, opacity: 0 }}
