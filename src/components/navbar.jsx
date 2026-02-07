@@ -40,7 +40,7 @@ export default function Navbar() {
 
                         {/* MENU */}
                         <motion.div
-                            className="fixed top-0 right-0 w-full h-screen bg-stone-800 z-[100] flex flex-col items-center pt-24 gap-8 text-white overflow-y-auto"
+                            className="fixed top-0 right-0 w-full h-screen bg-stone-800/80 z-[100] flex flex-col items-center pt-24 gap-8 text-white overflow-y-auto"
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
