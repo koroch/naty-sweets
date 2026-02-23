@@ -11,10 +11,10 @@
 body {
   background:
     radial-gradient(circle at top,
-      rgba(212,175,55,0.15),
-      transparent 60%),
+      rgba(220, 217, 213, 0.1),
+      transparent 80%),
     url("/assets/bg-floral-rosa.png"),
-    #fde2e7;
+    rgba(253, 226, 231, 0.9);
 
   background-repeat: no-repeat, repeat, no-repeat;
   background-size: 100% 100%, 300px, cover;

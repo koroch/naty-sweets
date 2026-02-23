@@ -64,6 +64,7 @@ export default function TiltedImage({ rotateAmplitude = 3, }) {
                         rounded-[15px]
                         will-change-transform
                         [transform:translateZ(0)]
+                        mb-20
                     "
                     >
                     <source
