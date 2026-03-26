@@ -3,191 +3,339 @@ import { motion } from "framer-motion";
 import SectionTitle from "../components/section-title";
 
 const sectionData = [
-  // 🍕 PIZZA BROWNIE
-  {
-    category: "Pizza Brownie",
-    title: "Pizza Brownie Kinder",
-    description: "Brownie artesanal com chocolate Kinder e morangos frescos.",
-    price: "R$ 89,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056465/brownie-pizza-kinder-morando_rwu6w3.jpg",
-  },
-  {
-    category: "Pizza Brownie",
-    title: "Pizza Brownie Ninho & Nutella",
-    description: "Brownie com creme de Ninho e Nutella.",
-    price: "R$ 84,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056465/brownie-pizza-ninho-e-nutella_tnajsz.jpg",
-  },
-  {
-    category: "Pizza Brownie",
-    title: "Pizza Brownie Ninho, Nutella & Morango",
-    description: "Combinação perfeita de Ninho, Nutella e morangos.",
-    price: "R$ 89,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056465/brownie-pizza-ninho-nutella-morango_orfi7g.jpg",
-  },
-  {
-    category: "Pizza Brownie",
-    title: "Pizza Brownie Brigadeiro",
-    description: "Brownie recheado com brigadeiro cremoso.",
-    price: "R$ 79,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056465/brownie-pizza-brigadeiro-preto_q8rann.jpg",
-  },
-  {
-    category: "Pizza Brownie",
-    title: "Pizza Brownie M&M’s",
-    description: "Brownie com cobertura de chocolate e M&M’s.",
-    price: "R$ 79,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056465/brownie-pizza-mm_andum7.jpg",
-  },
-
-  // 🍓 COXINHAS DOCES
-  {
-    category: "Coxinhas Doces",
-    title: "Coxinha de Morango",
-    description: "Massa de chocolate recheada com morango fresco.",
-    price: "R$ 9,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056465/coxinhas-de-morango_qjstl9.jpg",
-  },
-  {
-    category: "Coxinhas Doces",
-    title: "Coxinha de Uva",
-    description: "Coxinha doce com uva verde e cobertura de chocolate.",
-    price: "R$ 9,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056469/coxinhas-de-uva_e9wrm6.jpg",
-  },
-
-  // 🍫 COPO FONDUE
-  {
-    category: "Copo Fondue",
-    title: "Copo Fondue Tradicional",
-    description: "Fondue de chocolate com frutas selecionadas.",
-    price: "R$ 19,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056469/fondue-copo-1_c9vy2c.jpg",
-  },
-
-  // 🥚 MINI OVOS
-  {
-    category: "Mini Ovos",
-    title: "Mini Ovos Decorados",
-    description: "Mini ovos de chocolate recheados.",
-    price: "R$ 14,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056470/mini-ovos-1_feil38.jpg",
-  },
-  {
-    category: "Mini Ovos",
-    title: "Mini Ovos Sortidos",
-    description: "Seleção especial de mini ovos gourmet.",
-    price: "R$ 16,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056470/mini-ovos-2_sgjoxx.jpg",
-  },
-  {
-    category: "Mini Ovos",
-    title: "Mini Ovos Premium",
-    description: "Mini ovos com recheios especiais.",
-    price: "R$ 18,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056470/mini-ovos-3_nu3g5k.jpg",
-  },
 
   // 🥚 OVOS DE COLHER
   {
     category: "Ovos de Colher",
     title: "Ovo de Colher Kinder",
-    description: "Ovo de chocolate recheado com creme Kinder.",
-    price: "R$ 89,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056474/ovo-de-colher-kinder_kgq1ar.jpg",
+    description: "Casca de chocolate ao leite banhada de chocolate branco. Recheada com brigadeiro gurmet branco e pedaços de kinder. Decoração com pedaços de kinder , kinder Bueno e um kinder ovo.",
+    price: "R$ 110,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408538/ovo-kinder_rcip1w.png",
   },
   {
     category: "Ovos de Colher",
-    title: "Ovo de Colher Ninho & Nutella",
-    description: "Recheio cremoso de Ninho com Nutella.",
-    price: "R$ 84,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056474/ovo-de-colher-ninho-e-nutella_slr4ja.jpg",
+    title: "Ovo de Colher Ninho com Nutella",
+    description: "Casca de chocolate ao leite banhada com chocolate branco. Recheado com brigadeiro gurmet de leite ninho, Nutella.",
+    price: "R$ 95,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408538/ovo-ninho-com-nutella_en3tkc.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Ninho com Morango",
+    description: "Casca de chocolate branco ao leite com pedaços de Oreo. Recheada com brigadeiro gurmet branco com geleia de Morango. Decorado com morangos.",
+    price: "R$ 95,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408538/ovo-ninho-com-morango_fjqmmk.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Brigadeiro Tradicional",
+    description: "Casca de chocolate ao leite. Recheado com brigadeiro gurmet tradicional. Decorado com Brigadeiros.",
+    price: "R$ 80,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/ovo-brigadeiro-tradicional_ut9ozl.png",
   },
   {
     category: "Ovos de Colher",
     title: "Ovo de Colher Brownie",
-    description: "Ovo recheado com brownie artesanal.",
-    price: "R$ 79,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056471/ovo-de-colher-brownie-com-caramelo_ukqjia.jpg",
+    description: "Casca de Brownie banhada com chocolate ao leite ou branco. Recheado com pedaços de Brownie, brigadeiro tradicional,branco ou caramelo salgado.",
+    price: "R$ 95,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/ovo-brownie_cqu34a.png",
   },
   {
     category: "Ovos de Colher",
     title: "Ovo de Colher Franui",
-    description: "Chocolate com recheio inspirado no Franui.",
-    price: "R$ 89,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056476/ovo-de-colher-franui_b9t6yn.jpg",
+    description: "Casca de chocolate ao leite banhada com chocolate branco. Recheado com brigadeiro gurmet branco e geleia de frutas vermelhas.",
+    price: "R$ 110,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/ovo-franui_zfsqoh.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Ferrero Rocher",
+    description: "Casca de chocolate ao leite. Recheada com brigadeiro gurmet ao leite com pedaços de amendoim e nutella.",
+    price: "R$ 100,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/ovo-ferrero-rocher_fxwkqm.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher M&M's",
+    description: "Casca de chocolate ao leite com M&ms. Recheado com brigadeiro de chocolate ao leite com M&Ms.",
+    price: "R$ 95,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/ovo-mem_iaq2je.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Oreo",
+    description: "Casca de chocolate branco com pedaços de oreo. Recheada com brigadeiro gurmet branco com pedaços de biscoito oreo. Decorado com oreos e brigadeiros.",
+    price: "R$ 85,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408538/ovo-%C3%B3reo_p0md4g.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Pudim",
+    description: "Casca de chocolate branco com recheio de creme de pudim e calda, com um mini pudim em cima.",
+    price: "R$ 65,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/ovo-pudim_v5zidq.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Maracujá",
+    description: "Casca de chocolate ao leite. Recheado com mousse de maracujá e ganache de chocolate ao leite. Decorado com Brigadeiros.",
+    price: "R$ 85,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/ovo-maracuj%C3%A1_ck44pa.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo de Colher Folhata de Morango",
+    description: "Casca de chocolate branco, com recheio massa de baunilha acompanhada de morangos frescos, doce de leite e massa folhada.",
+    price: "R$ 110,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408538/ovo-folhata-de-morango_iavtvw.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo Bombom de Morango",
+    description: "Casca de chocolate ao leite, com recheio de brigadeiro gourmet branco, moramgos frescos, brigadeiros, brownie.",
+    price: "R$ 100,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/ovo-bombom-de-morango_lpwctp.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Ovo Bombom de Uva",
+    description: "Casca de chocolate ao leite. Recheado com brigadeiro gurmet branco com uvas verdes sem sementes e ganche de chocolate ao leite.",
+    price: "R$ 95,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/ovo-bombom-de-uva_kez24b.png",
+  },
+  {
+    category: "Ovos de Colher",
+    title: "Kit Ovos de Colher",
+    description: "Kit a ser montado com sabores disponíveis no cardápio.",
+    price: "R$ 120,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-ovos_ayuu6i.png",
   },
 
-  // 🍰 TORTA BROWNIE
+  // 🍫 BARRAS
   {
-    category: "Torta Brownie",
-    title: "Torta Brownie Brigadeiro & Morango",
-    description: "Brownie com brigadeiro e morangos frescos.",
-    price: "R$ 99,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056475/tortal-brownie-brigadeiro-e-morango_meilsz.jpg",
+    category: "Barras",
+    title: "Barra Oval",
+    description: "Barra disponível nos sabores: Oreo; Ninho com Nutella; Brigadeiro; M&ms; Ninho com Morango",
+    price: "R$ 30,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408540/barra-de-ovo_uvfkab.png",
   },
   {
-    category: "Torta Brownie",
-    title: "Torta Brownie Ninho & Nutella",
-    description: "Brownie recheado com Ninho e Nutella.",
-    price: "R$ 99,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056479/tortal-brownie-ninho-e-nutella_qkfhwt.jpg",
+    category: "Barras",
+    title: "Ovo Fatia - Kit 3 partes",
+    description: "Sabores: Até 3 sabores por kit! Sabores: Oreo; Ninho com Nutella; Brigadeiro Tradicional; Ninho com Morango; M&ms; Brownie",
+    price: "R$ 65,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774491750/ovo-fatia_bpg8dt.png",
   },
   {
-    category: "Torta Brownie",
-    title: "Torta Brownie Tradicional",
-    description: "Brownie com cobertura de chocolate.",
-    price: "R$ 89,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056479/tortal-brownie-preto_czvags.jpg",
-  },
-
-  // 🍮 PUDIM
-  {
-    category: "Pudim",
-    title: "Pudim Tradicional",
-    description: "Pudim cremoso com calda de caramelo.",
-    price: "R$ 12,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056474/pudim-1_whif9a.jpg",
+    category: "Barras",
+    title: "Ovo Fatia - Kit 6 partes",
+    description: "Sabores: Até 3 sabores por kit! Sabores: Oreo; Ninho com Nutella; Brigadeiro Tradicional; Ninho com Morango; M&ms; Brownie",
+    price: "R$ 155,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774491750/ovo-fatia_bpg8dt.png",
   },
   {
-    category: "Pudim",
-    title: "Pudim Gourmet",
-    description: "Versão especial com textura aveludada.",
-    price: "R$ 14,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056475/pudin-2_x2hipf.jpg",
+    category: "Barras",
+    title: "Barra Recheada",
+    description: "Barra de chocolate artesanal. Sabores: Ninho com Nutella; M&MS; Ninho com Morango; Brownie; Brigadeiro Tradicional; Oreo",
+    price: "R$ 26,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/barra-recheada_vrkiyb.png",
+  },
+  {
+    category: "Barras",
+    title: "Ovo Tablete",
+    description: "sabores: Oreo; Kinder; Kit Kat; Brigadeiro; M&ms; Mix castanhas",
+    price: "R$ 18,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/ovo-tablete_bp40hk.png",
   },
 
-  // 🍬 BOMBOM NO POTE
+  // 🎁 KITS
   {
-    category: "Bombom no Pote",
-    title: "Bombom de Morango",
-    description: "Bombom no pote com morangos frescos.",
-    price: "R$ 14,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056464/bombom-de-morango_mjbkri.jpg",
+    category: "Kits",
+    title: "Kit Confeiteiro 1",
+    description: "Dois recheios; 1 Granulado; 4 Casquinhas 50g",
+    price: "R$ 50,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408540/kit-confeiteiro-1_kgjuzb.png",
   },
   {
-    category: "Bombom no Pote",
-    title: "Bombom de Uva",
-    description: "Bombom no pote com uvas selecionadas.",
-    price: "R$ 14,90",
-    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1770056464/bombom-de-uva_fmngwp.jpg",
+    category: "Kits",
+    title: "Kit Confeiteiro 2",
+    description: "2 casquinhas 100g; 1 bisnaga de brigadeiro 150g; 3 tubinhos com confeiros diferentes",
+    price: "R$ 70,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408540/kit-confeiteiro-2_jzzuso.png",
   },
+  {
+    category: "Kits",
+    title: "Petisqueira",
+    description: "Kit 5 mini cascas 50g; Dois recheios; Granulado; M&MS; Marshmello; Oreos ou cookies; Brownie; Frutas",
+    price: "R$ 100,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408540/petisqueira_mwrzqu.png",
+  },
+  {
+    category: "Kits",
+    title: "Kit Mini Ovos - 3 Unidades",
+    description: "Sabores disponíveis de acordo com o cardápio.",
+    price: "R$ 30,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-mini-ovos_htybpl.png",
+  },
+  {
+    category: "Kits",
+    title: "Kit Mini Ovos - 6 Unidades",
+    description: "Sabores disponíveis de acordo com o cardápio.",
+    price: "R$ 65,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-mini-ovos_htybpl.png",
+  },
+  {
+    category: "Kits",
+    title: "Kit Ovos",
+    description: "Kit a ser montado com sabores disponíveis no cardápio.",
+    price: "R$ 120,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-ovos_ayuu6i.png",
+  },
+  {
+    category: "Kits",
+    title: "Cake Box - Bolo de cenoura com brigadeiro ao leite.",
+    description: "Bolo de cenoura com brigadeiro ao leite.",
+    price: "R$ 50,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/cake-box_xcndux.png",
+  },
+  {
+    category: "Kits",
+    title: "Cake Box - Folhata de Morango",
+    description: "Bolo de Doce de leite, Morango, Massa de baunilha e Massa folhada.",
+    price: "R$ 65,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408537/cake-box_xcndux.png",
+  },
+  {
+    category: "Kits",
+    title: "Bombons",
+    description: "Dois sabores por embalagem! Sabores: Ninho com Nutella; M&Ms; Brigadeiro Tradicional; Oreo; Ninho com Morango.",
+    price: "R$ 47,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/bombons_rh2zls.png",
+  },
+  {
+    category: "Kits",
+    title: "Bombom de Coelho - Unidade",
+    description: "Bombom especial em formato de coelho. Sabores: Ninho com Nutella; M&ms; Oreo; Franui; Ninho com Morango; Caramelo Salgado",
+    price: "R$ 9,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/bombom-de-coelho_lynqmx.png",
+  },
+
+  // 🥚 MINI OVOS
+  {
+    category: "Mini Ovos",
+    title: "Mini Ovos - 1 Unidade",
+    description: "Sabores disponíveis de acordo com o cardápio.",
+    price: "R$ 9,50",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-mini-ovos_htybpl.png",
+  },
+  {
+    category: "Mini Ovos",
+    title: "Mini Ovos - 3 Unidades",
+    description: "Sabores disponíveis de acordo com o cardápio.",
+    price: "R$ 30,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-mini-ovos_htybpl.png",
+  },
+  {
+    category: "Mini Ovos",
+    title: "Mini Ovos - 6 Unidades",
+    description: "Sabores disponíveis de acordo com o cardápio.",
+    price: "R$ 65,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408539/kit-mini-ovos_htybpl.png",
+  },
+
+  // Brownie
+  {
+    category: "Brownie",
+    title: "Ovo brownie",
+    description: "Fatia de brownie em formato de ovo com cobertura. Sabores de cobertura: Ninho e Nutella; Brigadeiro Tradicional; M&MS; Ninho com Moramgo; OREO",
+    price: "R$ 18,00",
+    image: "https://res.cloudinary.com/dbqabjuqy/image/upload/v1774408538/fatia-ovo-brownie_d9qanw.png",
+  }
 ];
 
+// ─── Componente do card individual ───────────────────────────────────────────
+function ProductCard({ product }) {
+  const handleClick = () => {
+    const message = encodeURIComponent(
+      `Gostaria de fazer um pedido! ${product.title} (Categoria: ${product.category}) de valor ${product.price}`
+    );
+    const whatsappLink = `https://wa.me/5551997145016?text=${message}`;
+    window.open(whatsappLink, "_blank");
+  };
+
+  return (
+    <div
+      onClick={handleClick}
+      className="relative rounded-xl overflow-hidden shadow-lg bg-white cursor-pointer group"
+    >
+      {/* Imagem — leve zoom no hover */}
+      <img
+        src={product.image}
+        alt={product.title}
+        className="h-[360px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+
+      {/* Título sempre visível — some no hover para dar espaço ao painel */}
+      <div className="absolute bottom-0 left-0 w-full px-4 py-3 bg-white transition-opacity duration-200 group-hover:opacity-0">
+        <h3 className="text-sm font-semibold text-slate-800 leading-snug">
+          {product.title}
+        </h3>
+      </div>
+
+      {/* Painel branco que sobe do rodapé no hover */}
+      <div
+        className="
+          absolute bottom-0 left-0 w-full
+          bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.12)]
+          px-4 pt-4 pb-6
+          translate-y-full group-hover:translate-y-0
+          transition-transform duration-300 ease-out
+        "
+        style={{ minHeight: "170px" }}
+      >
+        {/* Alça decorativa */}
+        <div className="w-8 h-1 bg-slate-200 rounded-full mx-auto mb-3" />
+
+        <h3 className="text-sm font-semibold text-slate-800 leading-snug mb-1">
+          {product.title}
+        </h3>
+
+        <p className="text-xs text-slate-500 leading-relaxed mb-3">
+          {product.description}
+        </p>
+
+        <div className="flex items-center justify-between">
+          <span className="text-lg font-bold text-yellow-500">
+            {product.price}
+          </span>
+
+          {/* Botão WhatsApp */}
+          <div className="flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-3.5 h-3.5 shrink-0"
+            >
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.528 5.855L0 24l6.335-1.508A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.001-1.371l-.359-.213-3.72.885.927-3.62-.234-.371A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+            </svg>
+            Pedir agora
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Componente principal ─────────────────────────────────────────────────────
 export default function OurLatestCreation() {
-  const categories = [
-    "Pizza Brownie",
-    "Torta Brownie",
-    "Coxinhas Doces",
-    "Mini Ovos",
-    "Pudim",
-    "Bombom no Pote",
-    "Picolé"
-  ];
+  const categories = ["Ovos de Colher", "Mini Ovos", "Brownie", "Barras", "Kits"];
 
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
+  const [isDragging, setIsDragging] = useState(false);
 
   const filteredProducts = sectionData.filter(
     (product) => product.category === activeCategory
@@ -195,15 +343,10 @@ export default function OurLatestCreation() {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 1024) {
-        setItemsPerView(3);
-      } else if (window.innerWidth >= 640) {
-        setItemsPerView(2);
-      } else {
-        setItemsPerView(1);
-      }
+      if (window.innerWidth >= 1024) setItemsPerView(3);
+      else if (window.innerWidth >= 640) setItemsPerView(2);
+      else setItemsPerView(1);
     }
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -215,17 +358,8 @@ export default function OurLatestCreation() {
 
   const maxIndex = Math.max(filteredProducts.length - itemsPerView, 0);
 
-  const goNext = () => {
-    setCurrentIndex((prev) =>
-      prev >= maxIndex ? 0 : prev + 1
-    );
-  };
-
-  const goPrev = () => {
-    setCurrentIndex((prev) =>
-      prev <= 0 ? maxIndex : prev - 1
-    );
-  };
+  const goNext = () => setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  const goPrev = () => setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
 
   return (
     <section
@@ -246,9 +380,7 @@ export default function OurLatestCreation() {
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white shadow-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           >
             {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
+              <option key={category} value={category}>{category}</option>
             ))}
           </select>
         </div>
@@ -273,36 +405,22 @@ export default function OurLatestCreation() {
         {/* CARROSSEL */}
         <div className="mt-12 relative">
 
-          {/* SETA ESQUERDA (sempre visível) */}
+          {/* SETA ESQUERDA */}
           <button
             onClick={goPrev}
             className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full w-11 h-11 flex items-center justify-center hover:scale-105 active:scale-95 transition"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 text-slate-700"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* SETA DIREITA (sempre visível) */}
+          {/* SETA DIREITA */}
           <button
             onClick={goNext}
             className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full w-11 h-11 flex items-center justify-center hover:scale-105 active:scale-95 transition"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 text-slate-700"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -311,44 +429,25 @@ export default function OurLatestCreation() {
             <motion.div
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
+              onDragStart={() => setIsDragging(true)}
               onDragEnd={(event, info) => {
+                // Pequeno delay para evitar que o drag dispare o onClick
+                setTimeout(() => setIsDragging(false), 50);
                 if (info.offset.x < -50) goNext();
                 if (info.offset.x > 50) goPrev();
               }}
-              animate={{
-                x: `-${(100 / itemsPerView) * currentIndex}%`,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 25,
-              }}
+              animate={{ x: `-${(100 / itemsPerView) * currentIndex}%` }}
+              transition={{ type: "spring", stiffness: 200, damping: 25 }}
               className="flex cursor-grab active:cursor-grabbing"
             >
               {filteredProducts.map((product) => (
                 <div
                   key={product.title}
                   className="min-w-full sm:min-w-1/2 lg:min-w-1/3 px-4"
+                  // Bloqueia o clique se o usuário estava arrastando
+                  onClick={(e) => isDragging && e.stopPropagation()}
                 >
-                  <div className="relative rounded-xl overflow-hidden shadow-lg bg-white">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="h-[360px] w-full object-cover"
-                    />
-
-                    <div className="absolute bottom-0 left-0 w-full bg-white p-4">
-                      <h3 className="text-sm font-semibold text-slate-800">
-                        {product.title}
-                      </h3>
-                      <p className="text-xs text-slate-500 mt-1">
-                        {product.description}
-                      </p>
-                      <span className="text-lg font-bold text-yellow-500 mt-2 block">
-                        {product.price}
-                      </span>
-                    </div>
-                  </div>
+                  <ProductCard product={product} />
                 </div>
               ))}
             </motion.div>
