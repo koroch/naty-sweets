@@ -372,6 +372,46 @@ export default function OurLatestCreation() {
           description="Escolha seu doce favorito 🍫"
         />
 
+        {/* ── BANNER CATÁLOGO PÁSCOA 2026 ── */}
+        <a
+          href="https://drive.google.com/file/d/1mPtgydeOsY-fwQUuz1a5-1wMyHlQa_ly/view"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 flex items-center gap-4 bg-gradient-to-r from-yellow-50 to-pink-50 border border-yellow-200 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md hover:border-yellow-400 transition-all duration-200 group"
+        >
+          {/* Ícone PDF */}
+          <div className="shrink-0 w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-yellow-600">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+              <rect x="9" y="3" width="6" height="4" rx="1" />
+              <line x1="9" y1="12" x2="15" y2="12" />
+              <line x1="9" y1="15" x2="13" y2="15" />
+              <line x1="9" y1="9" x2="15" y2="9" />
+            </svg>
+          </div>
+
+          {/* Texto */}
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-semibold text-yellow-600 uppercase tracking-wide mb-0.5">
+              Páscoa 2026 🐰🍫
+            </p>
+            <p className="text-sm font-bold text-slate-800 leading-snug">
+              Tabela de Preços - Cardápio de ovos
+            </p>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Veja todos os produtos, sabores e preços em detalhes
+            </p>
+          </div>
+
+          {/* Seta / CTA */}
+          <div className="shrink-0 flex items-center gap-1.5 text-yellow-600 text-xs font-semibold group-hover:translate-x-1 transition-transform duration-200">
+            <span className="hidden sm:inline whitespace-nowrap">Ver catálogo</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+
         {/* MOBILE SELECT */}
         <div className="sm:hidden mt-8">
           <select
@@ -431,7 +471,6 @@ export default function OurLatestCreation() {
               dragConstraints={{ left: 0, right: 0 }}
               onDragStart={() => setIsDragging(true)}
               onDragEnd={(event, info) => {
-                // Pequeno delay para evitar que o drag dispare o onClick
                 setTimeout(() => setIsDragging(false), 50);
                 if (info.offset.x < -50) goNext();
                 if (info.offset.x > 50) goPrev();
@@ -444,7 +483,6 @@ export default function OurLatestCreation() {
                 <div
                   key={product.title}
                   className="min-w-full sm:min-w-1/2 lg:min-w-1/3 px-4"
-                  // Bloqueia o clique se o usuário estava arrastando
                   onClick={(e) => isDragging && e.stopPropagation()}
                 >
                   <ProductCard product={product} />
