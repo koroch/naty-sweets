@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "../components/section-title";
 
 const sectionData = [
@@ -253,48 +253,92 @@ const sectionData = [
   }
 ];
 
+// ─── Ícone WhatsApp ───────────────────────────────────────────────────────────
+function WhatsAppIcon({ className }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.528 5.855L0 24l6.335-1.508A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.001-1.371l-.359-.213-3.72.885.927-3.62-.234-.371A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
+    </svg>
+  );
+}
+
 // ─── Componente do card individual ───────────────────────────────────────────
 function ProductCard({ product }) {
-  const handleClick = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleWhatsApp = (e) => {
+    e.stopPropagation();
     const message = encodeURIComponent(
       `Gostaria de fazer um pedido! ${product.title} (Categoria: ${product.category}) de valor ${product.price}`
     );
-    const whatsappLink = `https://wa.me/5551997145016?text=${message}`;
-    window.open(whatsappLink, "_blank");
+    window.open(`https://wa.me/5551997145016?text=${message}`, "_blank");
+  };
+
+  const handleExpand = (e) => {
+    e.stopPropagation();
+    setExpanded((prev) => !prev);
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className="relative rounded-xl overflow-hidden shadow-lg bg-white cursor-pointer group"
-    >
-      {/* Imagem — leve zoom no hover */}
+    <div className="relative rounded-xl overflow-hidden shadow-lg bg-white group">
+      {/* Imagem — leve zoom no hover desktop */}
       <img
         src={product.image}
         alt={product.title}
         className="h-[360px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
 
-      {/* Título sempre visível — some no hover para dar espaço ao painel */}
-      <div className="absolute bottom-0 left-0 w-full px-4 py-3 bg-white transition-opacity duration-200 group-hover:opacity-0">
-        <h3 className="text-sm font-semibold text-slate-800 leading-snug">
+      {/* ── BARRA INFERIOR SEMPRE VISÍVEL ──
+          Desktop: some no hover para o painel subir
+          Mobile:  sempre visível, tem o botão "↑" */}
+      <div
+        className={`
+          absolute bottom-0 left-0 w-full px-4 py-3 bg-white
+          flex items-center justify-between gap-2
+          transition-opacity duration-200
+          ${expanded ? "opacity-0 pointer-events-none" : ""}
+          group-hover:opacity-0 group-hover:pointer-events-none
+        `}
+      >
+        <h3 className="text-sm font-semibold text-slate-800 leading-snug truncate">
           {product.title}
         </h3>
+
+        {/* Botão expandir — visível apenas no mobile (touch devices) */}
+        <button
+          onClick={handleExpand}
+          aria-label="Ver detalhes"
+          className="sm:hidden shrink-0 w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 active:bg-yellow-200 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
       </div>
 
-      {/* Painel branco que sobe do rodapé no hover */}
+      {/* ── PAINEL DE DETALHES ──
+          Desktop: sobe com CSS hover (group-hover)
+          Mobile:  controlado pelo estado `expanded` */}
       <div
-        className="
+        className={`
           absolute bottom-0 left-0 w-full
           bg-white rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.12)]
-          px-4 pt-4 pb-6
-          translate-y-full group-hover:translate-y-0
+          px-4 pt-4 pb-5
           transition-transform duration-300 ease-out
-        "
+          ${expanded ? "translate-y-0" : "translate-y-full"}
+          group-hover:translate-y-0
+        `}
         style={{ minHeight: "170px" }}
       >
-        {/* Alça decorativa */}
-        <div className="w-8 h-1 bg-slate-200 rounded-full mx-auto mb-3" />
+        {/* Alça — no mobile fecha o painel, no desktop é decorativa */}
+        <button
+          onClick={handleExpand}
+          aria-label="Fechar detalhes"
+          className="sm:pointer-events-none w-full flex justify-center mb-3"
+        >
+          <div className="w-8 h-1 bg-slate-200 rounded-full" />
+        </button>
 
         <h3 className="text-sm font-semibold text-slate-800 leading-snug mb-1">
           {product.title}
@@ -309,19 +353,13 @@ function ProductCard({ product }) {
             {product.price}
           </span>
 
-          {/* Botão WhatsApp */}
-          <div className="flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-3.5 h-3.5 shrink-0"
-            >
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.528 5.855L0 24l6.335-1.508A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.803 9.803 0 01-5.001-1.371l-.359-.213-3.72.885.927-3.62-.234-.371A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-            </svg>
+          <button
+            onClick={handleWhatsApp}
+            className="flex items-center gap-1.5 bg-green-50 text-green-700 text-xs font-medium px-3 py-1.5 rounded-full active:bg-green-100 transition-colors"
+          >
+            <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" />
             Pedir agora
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -379,7 +417,6 @@ export default function OurLatestCreation() {
           rel="noopener noreferrer"
           className="mt-8 flex items-center gap-4 bg-gradient-to-r from-yellow-50 to-pink-50 border border-yellow-200 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md hover:border-yellow-400 transition-all duration-200 group"
         >
-          {/* Ícone PDF */}
           <div className="shrink-0 w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-yellow-600">
               <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
@@ -389,8 +426,6 @@ export default function OurLatestCreation() {
               <line x1="9" y1="9" x2="15" y2="9" />
             </svg>
           </div>
-
-          {/* Texto */}
           <div className="flex-1 min-w-0">
             <p className="text-xs font-semibold text-yellow-600 uppercase tracking-wide mb-0.5">
               Páscoa 2026 🐰🍫
@@ -402,8 +437,6 @@ export default function OurLatestCreation() {
               Veja todos os produtos, sabores e preços em detalhes
             </p>
           </div>
-
-          {/* Seta / CTA */}
           <div className="shrink-0 flex items-center gap-1.5 text-yellow-600 text-xs font-semibold group-hover:translate-x-1 transition-transform duration-200">
             <span className="hidden sm:inline whitespace-nowrap">Ver catálogo</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -445,7 +478,6 @@ export default function OurLatestCreation() {
         {/* CARROSSEL */}
         <div className="mt-12 relative">
 
-          {/* SETA ESQUERDA */}
           <button
             onClick={goPrev}
             className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full w-11 h-11 flex items-center justify-center hover:scale-105 active:scale-95 transition"
@@ -455,7 +487,6 @@ export default function OurLatestCreation() {
             </svg>
           </button>
 
-          {/* SETA DIREITA */}
           <button
             onClick={goNext}
             className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white shadow-md rounded-full w-11 h-11 flex items-center justify-center hover:scale-105 active:scale-95 transition"
